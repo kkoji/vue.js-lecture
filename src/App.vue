@@ -7,6 +7,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
     </v-toolbar>
+    <SideNav/>
 
     <v-content>
     </v-content>
@@ -14,9 +15,12 @@
 </template>
 
 <script>
+import SideNav from './components/SideNav'
+
 export default {
   name: 'App',
   components: {
+    SideNav
   },
   data () {
     return {
