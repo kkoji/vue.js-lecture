@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-toolbar app>
-      <v-toolbar-side-icon></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="openSideMenu"></v-toolbar-side-icon>
       <v-toolbar-title class="headline text-uppercase">
         <span>マイアドレス帳</span>
       </v-toolbar-title>
@@ -25,6 +25,11 @@ export default {
   data () {
     return {
       //
+    }
+  },
+  methods: {
+    openSideMenu () {
+      this.$store.dispatch('toggleSideMenu')
     }
   }
 }
