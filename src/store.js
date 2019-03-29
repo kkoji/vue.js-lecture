@@ -58,6 +58,7 @@ export default new Vuex.Store({
   getters: {
     userName: state => state.login_user ? state.login_user.displayName : '',
     photoURL: state => state.login_user ? state.login_user.photoURL : '',
-    uid: state => state.login_user ? state.login_user.uid : null
+    uid: state => state.login_user ? state.login_user.uid : null,
+    getAddressById: state => id => state.addresses.find(address => address.id === id)
   }
 })
