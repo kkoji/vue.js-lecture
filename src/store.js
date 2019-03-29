@@ -28,6 +28,11 @@ export default new Vuex.Store({
     setLoginUser ({ commit }, user) {
       commit('setLoginUser', user)
     },
+    fetchAddresses ({ getters, commit }) {
+      firebase.firestore().collection(`users/${getters.uid}/addresses`).get().then(snapshot => {
+        snapshot.forEach(doc => commit('addAddress', doc.data()))
+      })
+    },
     login () {
       const google_auth_provider = new firebase.auth.GoogleAuthProvider()
       firebase.auth().signInWithRedirect(google_auth_provider)
