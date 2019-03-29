@@ -28,6 +28,8 @@ import { mapActions } from 'vuex'
 
 export default {
   created () {
+    if (!this.$route.params.address_id) return
+
     const address = this.$store.getters.getAddressById(this.$route.params.address_id)
     if (address) {
       this.address = address
